@@ -1,0 +1,6 @@
+canvas {
+  image-rendering: pixelated; 
+}
+.pixel-grid {
+  border: 1px solid #4b0082;
+}
