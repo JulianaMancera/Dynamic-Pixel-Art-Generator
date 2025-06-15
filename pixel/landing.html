@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel Art Generator - Welcome</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="website icon" type="png" href="assets/milktea.png">
+  <style>
+    .sprite {
+      width: 100px;
+      height: 100px;
+      background: url('https://via.placeholder.com/100?text=PixelSprite') no-repeat;
+      animation: spin 4s linear infinite;
+    }
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-purple-900 to-indigo-600 min-h-screen flex flex-col items-center justify-center p-4">
+  <div class="text-center bg-white bg-opacity-20 backdrop-blur-lg rounded-lg p-8 shadow-lg">
+    <h1 class="text-4xl font-bold text-white mb-4">Welcome to Pixel Art Generator</h1>
+    <p class="text-lg text-white mb-6">Create stunning pixel art with ease! Draw, erase, fill, and save your creations.</p>
+    <div class="sprite mb-6 mx-auto"></div>
+    <a href="index.html" class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition">Start Drawing</a>
+  </div>
+</body>
+</html>

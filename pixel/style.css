@@ -1,6 +1,18 @@
 canvas {
-  image-rendering: pixelated; 
+  image-rendering: pixelated; /* Keeps pixels sharp */
 }
 .pixel-grid {
-  border: 1px solid #4b0082;
+  border: 1px solid #4b0082; /* Indigo border for violet theme */
+}
+.color-palette button {
+  border: 2px solid transparent;
+  transition: border 0.2s;
+}
+.color-palette button:hover {
+  border: 2px solid white;
+}
+.saved-drawing {
+  max-width: 100%;
+  border: 2px solid #4b0082;
+  border-radius: 4px;
 }

@@ -10,19 +10,51 @@
 </head>
 <body class="bg-gradient-to-br from-purple-900 to-indigo-600 min-h-screen flex flex-col items-center justify-center p-4">
   <h1 class="text-3xl font-bold text-white mb-4">Pixel Art Generator</h1>
-  <div class="bg-white bg-opacity-20 backdrop-blur-lg rounded-lg p-6 shadow-lg">
-
-    <canvas id="pixelCanvas" class="pixel-grid" width="320" height="320"></canvas>
-    
+  <div class="bg-white bg-opacity-20 backdrop-blur-lg rounded-lg p-6 shadow-lg w-full max-w-2xl">
+    <!-- Instructions -->
+    <div class="mb-4">
+      <button id="toggleInstructions" class="text-purple-200 underline">Show Instructions</button>
+      <div id="instructions" class="hidden text-white text-sm mt-2">
+        <p><strong>How to Use:</strong></p>
+        <ul class="list-disc pl-5">
+          <li>Click <strong>Draw</strong> to paint pixels with the selected color.</li>
+          <li>Use <strong>Erase</strong> to remove color (white).</li>
+          <li>Select <strong>Fill</strong> to flood-fill an area.</li>
+          <li>Hold <strong>Ctrl</strong> for continuous drawing.</li>
+          <li>Choose a color from the picker or palette below.</li>
+          <li>Change <strong>Grid Size</strong> to adjust resolution.</li>
+          <li>Click <strong>Undo</strong> to revert the last action.</li>
+          <li>Toggle <strong>Grid Lines</strong> to hide/show the grid.</li>
+          <li>Use <strong>Clear</strong> to reset the canvas.</li>
+          <li>Click <strong>Export PNG</strong> to save your art to the 'drawings' folder.</li>
+          <li>View saved drawings with <strong>View Saved Drawings</strong>.</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Canvas -->
+    <canvas id="pixelCanvas" class="pixel-grid mx-auto" width="320" height="320"></canvas>
+    <!-- Controls -->
     <div class="mt-4 flex flex-col gap-4">
-      <div class="flex gap-4">
+      <!-- Color Picker and Tools -->
+      <div class="flex flex-wrap gap-2">
         <input type="color" id="colorPicker" value="#000000" class="w-12 h-12 rounded">
+        <div id="colorPalette" class="flex gap-2">
+          <button class="w-8 h-8 bg-red-500 rounded" data-color="#ff0000"></button>
+          <button class="w-8 h-8 bg-green-500 rounded" data-color="#00ff00"></button>
+          <button class="w-8 h-8 bg-blue-500 rounded" data-color="#0000ff"></button>
+          <button class="w-8 h-8 bg-yellow-500 rounded" data-color="#ffff00"></button>
+          <button class="w-8 h-8 bg-black rounded" data-color="#000000"></button>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2">
         <button id="drawTool" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Draw</button>
         <button id="eraseTool" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Erase</button>
         <button id="fillTool" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Fill</button>
+        <button id="undoTool" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Undo</button>
+        <button id="gridToggle" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Hide Grid</button>
       </div>
-
-      <div class="flex gap-4">
+      <!-- Grid Size and Actions -->
+      <div class="flex flex-wrap gap-2">
         <select id="gridSize" class="px-4 py-2 rounded bg-purple-100 text-purple-900">
           <option value="16">16x16</option>
           <option value="32" selected>32x32</option>
@@ -30,10 +62,12 @@
         </select>
         <button id="clearCanvas" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Clear</button>
         <button id="exportImage" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Export PNG</button>
+        <button id="viewSaved" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">View Saved Drawings</button>
       </div>
     </div>
+    <!-- Saved Drawings -->
+    <div id="savedDrawings" class="hidden mt-4 grid grid-cols-2 gap-4"></div>
   </div>
-  <p class="text-white mt-4">Click to draw, hold Ctrl for continuous drawing, or use tools!</p>
   <script src="script.js"></script>
 </body>
 </html>
